@@ -31,8 +31,7 @@ def selenideVersion = "6.3.5",
     junitVersion = "5.8.2",
     slf4jVersion = "1.7.36",
     fakerVersion = "1.0.2",
-    allureVersion = "2.17.3",
-    assertjVersion = "3.22.0"
+    allureVersion = "2.17.3"
 
 dependencies {
     testImplementation(
@@ -41,8 +40,7 @@ dependencies {
             "org.slf4j:slf4j-simple:$slf4jVersion",
             "org.aeonbits.owner:owner:1.0.12",
             "com.github.javafaker:javafaker:$fakerVersion",
-            "io.qameta.allure:allure-selenide:$allureVersion",
-            "org.assertj:assertj-core:$assertjVersion"
+            "io.qameta.allure:allure-selenide:$allureVersion"
     )
 }
 
@@ -62,9 +60,8 @@ tasks.withType(Test) {
     }
 }
 
-task searchTest(type: Test) {
+task testProperty(type: Test) {
     useJUnitPlatform {
-        includeTags "searchTest"
-//        excludeTags "simple"
+        includeTags "testProperty"
     }
 }

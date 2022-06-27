@@ -1,7 +1,7 @@
 package helpers;
 
 import com.codeborne.selenide.Selenide;
-import demoga.com.tests.TestBase;
+import template.project.TestBase;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
