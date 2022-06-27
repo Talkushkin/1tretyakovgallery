@@ -1,19 +1,70 @@
 plugins {
-    id 'java'
+    id "java-library"
+    id "io.qameta.allure" version "2.9.6"
 }
-
-group 'org.example'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
-test {
+allure {
+    report {
+        version.set("2.17.3") // allure report https://github.com/allure-framework/allure2
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.17.3") // allure junit5 https://github.com/allure-framework/allure-java
+            }
+        }
+    }
+}
+
+def selenideVersion = "6.3.5",
+    junitVersion = "5.8.2",
+    slf4jVersion = "1.7.36",
+    fakerVersion = "1.0.2",
+    allureVersion = "2.17.3",
+    assertjVersion = "3.22.0"
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:$selenideVersion",
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.aeonbits.owner:owner:1.0.12",
+            "com.github.javafaker:javafaker:$fakerVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "org.assertj:assertj-core:$assertjVersion"
+    )
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task searchTest(type: Test) {
+    useJUnitPlatform {
+        includeTags "searchTest"
+//        excludeTags "simple"
+    }
 }
