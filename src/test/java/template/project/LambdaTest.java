@@ -17,9 +17,9 @@ import static org.openqa.selenium.By.linkText;
 import static org.openqa.selenium.By.partialLinkText;
 
 @Owner("Oleg Talkushkin")
-@Feature("Авторизация")
-@Story("Авторизация через сторонние системы")
-
+@Epic(value = "Google")
+@Feature(value = "Авторизация")
+@Story(value = "Авторизация через сторонние системы")
 
 public class LambdaTest extends TestBase {
     // RegistrationFormPage registrationFormPage = new RegistrationFormPage();
@@ -28,10 +28,9 @@ public class LambdaTest extends TestBase {
     private static final String ISSUES = "Issues";
     private static final int ISSUE_NUMBER = 76;
 
-
     @Test
     @AllureId("107084")
-    @Tags({@Tag("blocker"), @Tag("smoke")})
+    @Tags({@Tag("blocker"), @Tag("Smoke")})
     @Severity(BLOCKER)
     @Link(name = "Ссылка", url = "https://github.com/")
     @DisplayName("1 watcher exists in Allure examples repository")

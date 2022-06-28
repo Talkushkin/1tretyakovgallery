@@ -64,4 +64,10 @@ task testProperty(type: Test) {
     useJUnitPlatform {
         includeTags "testProperty"
     }
+
+    task Smoke(type: Test) {
+        useJUnitPlatform {
+            includeTags "Smoke"
+        }
+    }
 }
