@@ -28,15 +28,14 @@ public class TestBase {
         String selenoidUrl = config.selenoidUrl();
 
         String baseUrl = browserConfig.baseUrl();
+        String browser = browserConfig.browser();
         String browserSize = browserConfig.browserSize();
         String browserVersion = browserConfig.browserVersion();
-        String browser = browserConfig.browser();
 
-
-        Configuration.browser = browser;
-        Configuration.browserVersion = browserVersion;
-        Configuration.baseUrl = baseUrl;
-        Configuration.browserSize = browserSize;
+        Configuration.browser = System.getProperty("browser", browserConfig.browser());
+        Configuration.browserVersion = System.getProperty("browserVersion", browserConfig.browserVersion());
+        Configuration.baseUrl = System.getProperty("baseUrl", browserConfig.baseUrl());
+        Configuration.browserSize = System.getProperty("browserSize", browserConfig.browserSize());
 
         Configuration.remote = "https://" + selenoidLogin + ":" + selenoidPass + "@" + selenoidUrl;
 

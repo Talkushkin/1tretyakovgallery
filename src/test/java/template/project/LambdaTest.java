@@ -3,8 +3,8 @@ package template.project;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
-import template.project.pageObject.RegistrationFormPage;
 
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -26,7 +26,7 @@ public class LambdaTest extends TestBase {
     void testGithubIssue() {
 
         step("Открываем главную страницу", () -> {
-            open("https://github.com/");
+            open(baseUrl);
         });
 
         step("Ищем репозиторий " + REPOSITORY, () -> {

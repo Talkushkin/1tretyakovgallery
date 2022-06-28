@@ -22,6 +22,8 @@
 *.tar.gz
 *.rar
 *.iml
+*.json
+*.txt
 
 # Project gen files
 .idea
