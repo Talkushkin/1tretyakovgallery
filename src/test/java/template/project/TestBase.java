@@ -27,10 +27,6 @@ public class TestBase {
         String selenoidPass = config.selenoidPass();
         String selenoidUrl = config.selenoidUrl();
 
-        String baseUrl = browserConfig.baseUrl();
-        String browser = browserConfig.browser();
-        String browserSize = browserConfig.browserSize();
-        String browserVersion = browserConfig.browserVersion();
 
         Configuration.browser = System.getProperty("browser", browserConfig.browser());
         Configuration.browserVersion = System.getProperty("browserVersion", browserConfig.browserVersion());
