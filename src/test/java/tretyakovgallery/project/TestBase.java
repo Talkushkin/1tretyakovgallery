@@ -1,4 +1,4 @@
-package template.project;
+package tretyakovgallery.project;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -12,28 +12,29 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
 
     @BeforeAll
     static void setUp() {
-        SelenoidConfig config = ConfigFactory.create(SelenoidConfig.class);
-        BrowserConfig browserConfig = ConfigFactory.create(BrowserConfig.class);
+//        SelenoidConfig config = ConfigFactory.create(SelenoidConfig.class);
+       BrowserConfig browserConfig = ConfigFactory.create(BrowserConfig.class);
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
-        String selenoidLogin = config.selenoidLogin();
-        String selenoidPass = config.selenoidPass();
-        String selenoidUrl = config.selenoidUrl();
+//        String selenoidLogin = config.selenoidLogin();
+//        String selenoidPass = config.selenoidPass();
+//        String selenoidUrl = config.selenoidUrl();
 
 
-        Configuration.browser = System.getProperty("browser", browserConfig.browser());
-        Configuration.browserVersion = System.getProperty("browserVersion", browserConfig.browserVersion());
-        Configuration.baseUrl = System.getProperty("baseUrl", browserConfig.baseUrl());
+//        Configuration.browser = System.getProperty("browser", browserConfig.browser());
+//        Configuration.browserVersion = System.getProperty("browserVersion", browserConfig.browserVersion());
+//       // Configuration.baseUrl = System.getProperty("baseUrl", browserConfig.baseUrl());
         Configuration.browserSize = System.getProperty("browserSize", browserConfig.browserSize());
 
-        Configuration.remote = "https://" + selenoidLogin + ":" + selenoidPass + "@" + selenoidUrl;
+        //Configuration.remote = "https://" + selenoidLogin + ":" + selenoidPass + "@" + selenoidUrl;
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
