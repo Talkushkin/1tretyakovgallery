@@ -30,7 +30,7 @@ public class RegFormTest extends TestBase {
 
 
     @Test
-    @DisplayName("Successful fill registration test")
+    @DisplayName("Successful fill lavrusTretyakov registration test")
     void execute() {
         registrationFormPage.openPage()
                 .profileBtnClick()

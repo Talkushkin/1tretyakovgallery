@@ -60,14 +60,20 @@ tasks.withType(Test) {
     }
 }
 
-task testProperty(type: Test) {
-    useJUnitPlatform {
-        includeTags "testProperty"
-    }
+         task testProperty(type: Test) {
+             useJUnitPlatform {
+                includeTags "testProperty"
+         }
 
-    task lavrusTretyakov(type: Test) {
-        useJUnitPlatform {
-            includeTags "lavrusTretyakov"
+        task lavrusTretyakov(type: Test) {
+              useJUnitPlatform {
+                includeTags "lavrusTretyakov"
+        }
+
+        task myTretyakov(type: Test) {
+            useJUnitPlatform {
+                includeTags "myTretyakov"
+            }
         }
     }
 }
