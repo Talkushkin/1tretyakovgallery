@@ -4,13 +4,12 @@ import com.codeborne.selenide.SelenideElement;
 import tretyakovgallery.project.TestBase;
 
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class RegistrationFormPage extends TestBase {
+public class RegistrationFormPage {
 
     // locators - not like I'm using them more than once, but let's create some variables for long names
     SelenideElement profileBtn = $("#profileBtn");
@@ -21,14 +20,16 @@ public class RegistrationFormPage extends TestBase {
     SelenideElement lastName = $(".form-box .form-input:nth-child(4) > .input-field > input");
     SelenideElement firstName = $(".form-box .form-input:nth-child(5) > .input-field > input");
     SelenideElement phoneNumber = $(".form-box .form-input:nth-child(6) > .input-field > input");
-    SelenideElement btnRegistration = $(".btn-row __center > button");
+    SelenideElement btnRegistration = $(".form-box").$(byText("Зарегистрироваться"));
+    SelenideElement checkProfileBtn = $("#profileBtn");
 
 
     //actions
     public RegistrationFormPage openPage() {
         step("Открываем главную страницу", () -> {
-        open("https://lavrus.tretyakov.ru/");
-        $("title").shouldHave(attribute("text", "Лаврус — просветительский проект Третьяковской галереи о русском искусстве"));
+            open("https://lavrus.tretyakov.ru");
+            $("title").shouldHave(attribute("text", "Лаврус — просветительский проект Третьяковской галереи о русском искусстве"));
+            $(".cookies").$(byText("Понятно")).click();
         });
         return this;
     }
@@ -70,13 +71,18 @@ public class RegistrationFormPage extends TestBase {
         return this;
     }
 
-    public RegistrationFormPage phoneNumber(String number ) {
+    public RegistrationFormPage phoneNumber(String number) {
         phoneNumber.setValue(number);
         return this;
     }
 
-    public RegistrationFormPage btnRegistrationClick( ) {
-        btnRegistration.click();
+    public RegistrationFormPage btnRegistrationClick() {
+        btnRegistration.shouldBe(visible).click();
+        return this;
+    }
+
+    public RegistrationFormPage checkProfileBtn() {
+        checkProfileBtn.shouldBe(visible);
         return this;
     }
 

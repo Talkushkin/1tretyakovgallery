@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Tue Jul 19 09:25:17 MSK 2022","Tue Jul 19 09:25:40 MSK 2022","23212","","tretyakovgallery.project.lavrus.tretyakov.ru.RegFormTest","","tretyakovgallery.project.lavrus.tretyakov.ru.RegFormTest","execute","Successful fill registration test",""
