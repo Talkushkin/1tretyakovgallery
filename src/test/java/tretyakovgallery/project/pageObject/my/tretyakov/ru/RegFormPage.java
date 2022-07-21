@@ -1,21 +1,20 @@
 package tretyakovgallery.project.pageObject.my.tretyakov.ru;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class RegistrationFormPage2 {
+public class RegFormPage {
 
     // locators - not like I'm using them more than once, but let's create some variables for long names
     SelenideElement profileBtn = $(".header-right > a");
-    SelenideElement hrefRegistrationClick = $(".login-bottom text-item--small text--upper > a");
+    SelenideElement hrefRegistrationClick = $(".login").$(byText("пройти регистрацию"));
 
-    SelenideElement firstName = $(".registration-content-right .input max:nth-child(1) > input");
+    ElementsCollection firstName = $$(".registration-content-title text-item--small .input max:nth--child(6) > input");
     SelenideElement lastName = $(".registration-content-right .input max:nth-child(2) > input");
     SelenideElement emailAddress = $(".registration-content-right .input max:nth-child(3) > input");
 
@@ -27,7 +26,7 @@ public class RegistrationFormPage2 {
 
 
     //actions
-    public RegistrationFormPage2 openPage() {
+    public RegFormPage openPage() {
         step("Открываем главную страницу", () -> {
             open("https://my.tretyakov.ru/app");
             $("title").shouldHave(attribute("text", "Моя Третьяковка"));
@@ -35,49 +34,49 @@ public class RegistrationFormPage2 {
         return this;
     }
 
-    public RegistrationFormPage2 profileBtnClick() {
+    public RegFormPage profileBtnClick() {
         profileBtn.click();
         $("h6").shouldHave(text("Вход в Мою Третьяковку"));
         return this;
     }
 
-    public RegistrationFormPage2 hrefRegistrationClick() {
-        hrefRegistrationClick.shouldBe(visible).click();
+    public RegFormPage hrefRegistrationClick() {
+        hrefRegistrationClick.shouldBe(visible).hover().click();
         $("h3").shouldHave(text("Стать участником"));
         return this;
     }
 
-    public RegistrationFormPage2 firstName(String value) {
-        firstName.setValue(value);
+    public RegFormPage firstName(String value) {
+        firstName.findBy(visible).setValue(value);
         return this;
     }
 
-    public RegistrationFormPage2 lastName(String value) {
+    public RegFormPage lastName(String value) {
         lastName.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage2 emailAddress(String value) {
+    public RegFormPage emailAddress(String value) {
         emailAddress.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage2 getPassword(String value) {
+    public RegFormPage getPassword(String value) {
         getPassword.setValue(value);
         return this;
     }
 
-    public RegistrationFormPage2 btnRegistrationClick() {
+    public RegFormPage btnRegistrationClick() {
         btnRegistration.shouldBe(visible).click();
         return this;
     }
 
-    public RegistrationFormPage2 checkBoxPolicyCLick() {
+    public RegFormPage checkBoxPolicyCLick() {
         checkBoxPolicyCLick.click();
         return this;
     }
 
-    public RegistrationFormPage2 checkProfileBtn() {
+    public RegFormPage checkProfileBtn() {
         checkProfileBtn.shouldBe(visible);
         return this;
     }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tretyakovgallery.project.TestBase;
 import tretyakovgallery.project.data.Generator;
-import tretyakovgallery.project.pageObject.my.tretyakov.ru.RegistrationFormPage2;
+import tretyakovgallery.project.pageObject.my.tretyakov.ru.RegFormPage;
 
 
 import static java.lang.String.format;
@@ -13,7 +13,7 @@ import static java.lang.String.format;
     @Tag("myTretyakov")
     public class RegFormTest extends TestBase {
 
-        RegistrationFormPage2 registrationFormPage = new RegistrationFormPage2();
+        RegFormPage registrationFormPage = new RegFormPage();
         Generator gen = new Generator();
 
         //generated or given parameters
