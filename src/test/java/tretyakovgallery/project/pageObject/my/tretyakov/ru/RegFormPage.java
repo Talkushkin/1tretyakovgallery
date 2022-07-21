@@ -14,8 +14,8 @@ public class RegFormPage {
     SelenideElement profileBtn = $(".header-right > a");
     SelenideElement hrefRegistrationClick = $(".login").$(byText("пройти регистрацию"));
 
-    ElementsCollection firstName = $$(".registration-content-title text-item--small .input max:nth--child(6) > input");
-    SelenideElement lastName = $(".registration-content-right .input max:nth-child(2) > input");
+    SelenideElement firstName = $(".registration-content-right input[name=name]");
+    SelenideElement lastName = $(".registration-content-right").$(byText("Фамилия"));
     SelenideElement emailAddress = $(".registration-content-right .input max:nth-child(3) > input");
 
     SelenideElement getPassword = $(".registration-content-right .input max:nth-child(4) > input");
@@ -47,12 +47,12 @@ public class RegFormPage {
     }
 
     public RegFormPage firstName(String value) {
-        firstName.findBy(visible).setValue(value);
+        firstName.shouldBe(visible).sendKeys(value);
         return this;
     }
 
     public RegFormPage lastName(String value) {
-        lastName.setValue(value);
+        lastName.parent().sendKeys(value);
         return this;
     }
 

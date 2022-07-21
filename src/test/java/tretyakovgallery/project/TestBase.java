@@ -32,6 +32,8 @@ public class TestBase {
 //        String selenoidPass = config.selenoidPass();
 //        String selenoidUrl = config.selenoidUrl();
 
+
+        Configuration.headless = (false);
         Configuration.holdBrowserOpen = (true);
 //        Configuration.browser = System.getProperty("browser", browserConfig.browser());
 //        Configuration.browserVersion = System.getProperty("browserVersion", browserConfig.browserVersion());
@@ -59,6 +61,6 @@ public class TestBase {
                 "html",
                 WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
         );
-        //closeWebDriver();
+        closeWebDriver();
     }
 }
