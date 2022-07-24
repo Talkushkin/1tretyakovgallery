@@ -30,8 +30,8 @@ public class TestBase {
 
 //        String selenoidLogin = config.selenoidLogin();
 
-        Configuration.headless = (false);
-        Configuration.holdBrowserOpen = (true);
+        Configuration.headless = (true);
+        Configuration.holdBrowserOpen = (false);
 //        Configuration.browser = System.getProperty("browser", browserConfig.browser());
 //        Configuration.browserVersion = System.getProperty("browserVersion", browserConfig.browserVersion());
 //       // Configuration.baseUrl = System.getProperty("baseUrl", browserConfig.baseUrl());
