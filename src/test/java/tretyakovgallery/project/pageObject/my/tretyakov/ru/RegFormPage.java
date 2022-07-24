@@ -1,6 +1,5 @@
 package tretyakovgallery.project.pageObject.my.tretyakov.ru;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;

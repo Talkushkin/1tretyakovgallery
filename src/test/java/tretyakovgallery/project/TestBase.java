@@ -23,15 +23,12 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
-//        SelenoidConfig config = ConfigFactory.create(SelenoidConfig.class);
         BrowserConfig browserConfig = ConfigFactory.create(BrowserConfig.class);
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
-//        String selenoidLogin = config.selenoidLogin();
-
-        Configuration.headless = (false);
-        Configuration.holdBrowserOpen = (true);
+        Configuration.headless = (true);
+        Configuration.holdBrowserOpen = (false);
 //        Configuration.browser = System.getProperty("browser", browserConfig.browser());
 //        Configuration.browserVersion = System.getProperty("browserVersion", browserConfig.browserVersion());
 //       // Configuration.baseUrl = System.getProperty("baseUrl", browserConfig.baseUrl());

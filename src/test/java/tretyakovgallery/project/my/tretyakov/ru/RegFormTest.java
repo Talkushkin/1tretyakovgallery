@@ -1,5 +1,9 @@
 package tretyakovgallery.project.my.tretyakov.ru;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -8,9 +12,13 @@ import tretyakovgallery.project.data.Generator;
 import tretyakovgallery.project.pageObject.my.tretyakov.ru.RegFormPage;
 
 
+import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static java.lang.String.format;
-
-    @Tag("myTretyakov")
+@Owner("Oleg Talkushkin")
+@Epic(value = "my.tretyakov.ru")
+@Feature(value = "Регистрация")
+@Severity(CRITICAL)
+@Tag("myTretyakov")
     public class RegFormTest extends TestBase {
 
         RegFormPage registrationFormPage = new RegFormPage();
