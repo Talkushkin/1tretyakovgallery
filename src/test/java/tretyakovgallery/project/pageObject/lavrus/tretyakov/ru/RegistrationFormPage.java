@@ -1,6 +1,10 @@
 package tretyakovgallery.project.pageObject.lavrus.tretyakov.ru;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Allure;
+
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -100,9 +104,13 @@ public class RegistrationFormPage {
     public RegistrationFormPage checkProfileBtn() {
         step("Проверяем что регистрация прошла успешно", () -> {
         checkProfileBtn.shouldBe(visible);
+            Allure.getLifecycle().addAttachment(
+                    "Исходники страницы",
+                    "text/html",
+                    "html",
+                    WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
+            );
         });
         return this;
     }
-
-
 }

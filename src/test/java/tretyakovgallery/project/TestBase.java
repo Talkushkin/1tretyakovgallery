@@ -49,12 +49,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        Allure.getLifecycle().addAttachment(
-                "Исходники страницы",
-                "text/html",
-                "html",
-                WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-        );
         closeWebDriver();
     }
 }

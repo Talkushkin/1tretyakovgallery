@@ -16,7 +16,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static java.lang.String.format;
 @Owner("Oleg Talkushkin")
 @Epic(value = "my.tretyakov.ru")
-@Feature(value = "Регистрация")
+@Feature(value = "Р РµРіРёСЃС‚СЂР°С†РёСЏ")
 @Severity(CRITICAL)
 @Tag("myTretyakov")
     public class RegFormTest extends TestBase {

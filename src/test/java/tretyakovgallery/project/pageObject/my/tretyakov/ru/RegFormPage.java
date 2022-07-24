@@ -1,6 +1,10 @@
 package tretyakovgallery.project.pageObject.my.tretyakov.ru;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Allure;
+
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -93,6 +97,13 @@ public class RegFormPage {
     public RegFormPage checkProfileBtn() {
         step("Проверяем заголовок Ваш текущий статус", () -> {
         checkProfileBtn.shouldBe(visible);
+            Allure.getLifecycle().addAttachment(
+                    "Исходники страницы",
+                    "text/html",
+                    "html",
+                    WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
+            );
+            return this;
         });
         return this;
     }
