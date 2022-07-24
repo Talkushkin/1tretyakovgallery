@@ -38,72 +38,72 @@ public class RegistrationFormPage {
 
     public RegistrationFormPage profileBtnClick() {
         step("Кликаем по иконке мой профиль, проверяем наличие  заголовка Войти на Лаврус", () -> {
-        profileBtn.click();
-        $("h3").shouldHave(text("Войти на Лаврус"));
+            profileBtn.click();
+            $("h3").shouldHave(text("Войти на Лаврус"));
         });
         return this;
     }
 
     public RegistrationFormPage hrefRegistrationClick() {
         step("Кликаем по ссылке регистрация, проверяем наличие заголовка Регистрация", () -> {
-        hrefRegistrationClick.click();
-        $("h3").shouldHave(text("Регистрация"));
+            hrefRegistrationClick.click();
+            $("h3").shouldHave(text("Регистрация"));
         });
         return this;
     }
 
     public RegistrationFormPage emailAddress(String value) {
         step("Вводим E-mail", () -> {
-        emailAddress.setValue(value);
+            emailAddress.setValue(value);
         });
         return this;
     }
 
     public RegistrationFormPage getPassword(String value) {
         step("Вводим пароль", () -> {
-        getPassword.setValue(value);
+            getPassword.setValue(value);
         });
         return this;
     }
 
     public RegistrationFormPage getReplayPassword(String value) {
         step("Вводим повторный пароль", () -> {
-        getReplayPassword.setValue(value);
+            getReplayPassword.setValue(value);
         });
         return this;
     }
 
     public RegistrationFormPage lastName(String value) {
         step("Вводим фамилию", () -> {
-        lastName.setValue(value);
+            lastName.setValue(value);
         });
         return this;
     }
 
     public RegistrationFormPage firstName(String value) {
         step("Вводим имя", () -> {
-        firstName.setValue(value);
+            firstName.setValue(value);
         });
         return this;
     }
 
     public RegistrationFormPage phoneNumber(String number) {
         step("Вводим номер телефона", () -> {
-        phoneNumber.setValue(number);
+            phoneNumber.setValue(number);
         });
         return this;
     }
 
     public RegistrationFormPage btnRegistrationClick() {
         step("Кликаем по кнопке зарегистрироваться", () -> {
-        btnRegistration.shouldBe(visible).click();
+            btnRegistration.shouldBe(visible).click();
         });
         return this;
     }
 
     public RegistrationFormPage checkProfileBtn() {
         step("Проверяем что регистрация прошла успешно", () -> {
-        checkProfileBtn.shouldBe(visible);
+            checkProfileBtn.shouldBe(visible);
             Allure.getLifecycle().addAttachment(
                     "Исходники страницы",
                     "text/html",

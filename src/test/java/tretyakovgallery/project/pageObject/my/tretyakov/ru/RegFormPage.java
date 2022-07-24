@@ -38,72 +38,71 @@ public class RegFormPage {
 
     public RegFormPage profileBtnClick() {
         step("Кликаем по иконке мой профиль, проверяем наличие заголовка Вход в мою третьяковку", () -> {
-        profileBtn.click();
-        $("h6").shouldHave(text("Вход в Мою Третьяковку"));
+            profileBtn.click();
+            $("h6").shouldHave(text("Вход в Мою Третьяковку"));
         });
         return this;
     }
 
     public RegFormPage hrefRegistrationClick() {
         step("Кликаем по ссылке Пройти регистрацию, проверяем заголовок Стать участником", () -> {
-        hrefRegistrationClick.shouldBe(visible).hover().click();
-        $("h3").shouldHave(text("Стать участником"));
+            hrefRegistrationClick.shouldBe(visible).hover().click();
+            $("h3").shouldHave(text("Стать участником"));
         });
         return this;
     }
 
     public RegFormPage firstName(String value) {
         step("Вводим имя", () -> {
-        firstName.shouldBe(visible).sendKeys(value);
+            firstName.shouldBe(visible).sendKeys(value);
         });
         return this;
     }
 
     public RegFormPage lastName(String value) {
         step("Вводим фамилию", () -> {
-        lastName.parent().sendKeys(value);
+            lastName.parent().sendKeys(value);
         });
         return this;
     }
 
     public RegFormPage emailAddress(String value) {
         step("Вводим E-mail", () -> {
-        emailAddress.parent().sendKeys(value);
+            emailAddress.parent().sendKeys(value);
         });
         return this;
     }
 
     public RegFormPage getPassword(String value) {
         step("Вводим Пароль", () -> {
-        getPassword.parent().sendKeys(value);
+            getPassword.parent().sendKeys(value);
         });
         return this;
     }
 
     public RegFormPage checkBoxPolicyCLick() {
         step("Кликаем по чек-боксу пользовательского соглашения", () -> {
-        checkBoxPolicyCLick.click();
+            checkBoxPolicyCLick.click();
         });
         return this;
     }
 
     public RegFormPage btnRegistrationClick() {
         step("Кликаем по кнопке зарегистироваться", () -> {
-        btnRegistration.shouldBe(visible).click();
+            btnRegistration.shouldBe(visible).click();
         });
         return this;
     }
 
     public RegFormPage checkProfileBtn() {
         step("Проверяем заголовок Ваш текущий статус", () -> {
-        checkProfileBtn.shouldBe(visible);
+            checkProfileBtn.shouldBe(visible);
             Allure.getLifecycle().addAttachment(
                     "Исходники страницы",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
             );
-            return this;
         });
         return this;
     }
