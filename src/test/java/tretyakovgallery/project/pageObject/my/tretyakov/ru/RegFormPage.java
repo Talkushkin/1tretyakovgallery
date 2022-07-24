@@ -25,7 +25,7 @@ public class RegFormPage {
 
     //actions
     public RegFormPage openPage() {
-        step("Открываем главную страницу", () -> {
+        step("Открываем главную страницу, проверяем title Моя Третьяковка", () -> {
             open("https://my.tretyakov.ru/app");
             $("title").shouldHave(attribute("text", "Моя Третьяковка"));
         });
@@ -41,7 +41,7 @@ public class RegFormPage {
     }
 
     public RegFormPage hrefRegistrationClick() {
-        step("Кликаем по ссылке Пройти регистрацию", () -> {
+        step("Кликаем по ссылке Пройти регистрацию, проверяем заголовок Стать участником", () -> {
         hrefRegistrationClick.shouldBe(visible).hover().click();
         $("h3").shouldHave(text("Стать участником"));
         });
@@ -91,7 +91,7 @@ public class RegFormPage {
     }
 
     public RegFormPage checkProfileBtn() {
-        step("Проверяем что регистрация прошла успешно", () -> {
+        step("Проверяем заголовок Ваш текущий статус", () -> {
         checkProfileBtn.shouldBe(visible);
         });
         return this;

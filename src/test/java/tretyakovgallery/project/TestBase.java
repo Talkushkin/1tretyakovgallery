@@ -4,7 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.BrowserConfig;
-import config.SelenoidConfig;
+
 import helpers.Attach;
 import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -12,7 +12,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import tretyakovgallery.project.pageObject.lavrus.tretyakov.ru.RegistrationFormPage;
+
 
 
 import java.nio.charset.StandardCharsets;

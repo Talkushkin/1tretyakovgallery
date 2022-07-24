@@ -24,7 +24,7 @@ public class RegistrationFormPage {
 
     //actions
     public RegistrationFormPage openPage() {
-        step("Открываем главную страницу", () -> {
+        step("Открываем главную страницу, проверяем title Лаврус — просветительский проект Третьяковской галереи о русском искусстве", () -> {
             open("https://lavrus.tretyakov.ru");
             $("title").shouldHave(attribute("text", "Лаврус — просветительский проект Третьяковской галереи о русском искусстве"));
             $(".cookies").$(byText("Понятно")).click();
@@ -41,7 +41,7 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage hrefRegistrationClick() {
-        step("Кликаем по ссылке регистрация, проверяем наличие заголовка регистрация", () -> {
+        step("Кликаем по ссылке регистрация, проверяем наличие заголовка Регистрация", () -> {
         hrefRegistrationClick.click();
         $("h3").shouldHave(text("Регистрация"));
         });
