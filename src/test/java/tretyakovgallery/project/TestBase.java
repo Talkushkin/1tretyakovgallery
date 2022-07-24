@@ -29,9 +29,6 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
 //        String selenoidLogin = config.selenoidLogin();
-//        String selenoidPass = config.selenoidPass();
-//        String selenoidUrl = config.selenoidUrl();
-
 
         Configuration.headless = (false);
         Configuration.holdBrowserOpen = (true);

@@ -17,7 +17,6 @@ import static java.lang.String.format;
         Generator gen = new Generator();
 
         //generated or given parameters
-
         String firstName = gen.getFirstName();
         String lastName = gen.getLastName();
         String email = gen.getEmail();

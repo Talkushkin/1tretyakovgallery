@@ -16,14 +16,13 @@ public class RegFormPage {
 
     SelenideElement firstName = $(".registration-content-right input[name=name]");
     SelenideElement lastName = $(".registration-content-right").$(byText("Фамилия"));
-    SelenideElement emailAddress = $(".registration-content-right .input max:nth-child(3) > input");
+    SelenideElement emailAddress = $(".registration-content-right").$(byText("E-mail"));
 
-    SelenideElement getPassword = $(".registration-content-right .input max:nth-child(4) > input");
+    SelenideElement getPassword = $(".registration-content-right").$(byText("Пароль"));
     SelenideElement checkBoxPolicyCLick = $("#reginstr-policy");
 
-    SelenideElement btnRegistration = $(".registration-content-right").$(byText("Зарегистрироваться"));
-    SelenideElement checkProfileBtn = $("#profileBtn");
-
+    SelenideElement btnRegistration = $(".registration-content-right").$(byText("зарегистрироваться"));
+    SelenideElement checkProfileBtn = $(byText("Ваш текущий статус"));
 
     //actions
     public RegFormPage openPage() {
@@ -35,51 +34,67 @@ public class RegFormPage {
     }
 
     public RegFormPage profileBtnClick() {
+        step("Кликаем по иконке мой профиль, проверяем наличие заголовка Вход в мою третьяковку", () -> {
         profileBtn.click();
         $("h6").shouldHave(text("Вход в Мою Третьяковку"));
+        });
         return this;
     }
 
     public RegFormPage hrefRegistrationClick() {
+        step("Кликаем по ссылке Пройти регистрацию", () -> {
         hrefRegistrationClick.shouldBe(visible).hover().click();
         $("h3").shouldHave(text("Стать участником"));
+        });
         return this;
     }
 
     public RegFormPage firstName(String value) {
+        step("Вводим имя", () -> {
         firstName.shouldBe(visible).sendKeys(value);
+        });
         return this;
     }
 
     public RegFormPage lastName(String value) {
+        step("Вводим фамилию", () -> {
         lastName.parent().sendKeys(value);
+        });
         return this;
     }
 
     public RegFormPage emailAddress(String value) {
-        emailAddress.setValue(value);
+        step("Вводим E-mail", () -> {
+        emailAddress.parent().sendKeys(value);
+        });
         return this;
     }
 
     public RegFormPage getPassword(String value) {
-        getPassword.setValue(value);
-        return this;
-    }
-
-    public RegFormPage btnRegistrationClick() {
-        btnRegistration.shouldBe(visible).click();
+        step("Вводим Пароль", () -> {
+        getPassword.parent().sendKeys(value);
+        });
         return this;
     }
 
     public RegFormPage checkBoxPolicyCLick() {
+        step("Кликаем по чек-боксу пользовательского соглашения", () -> {
         checkBoxPolicyCLick.click();
+        });
+        return this;
+    }
+
+    public RegFormPage btnRegistrationClick() {
+        step("Кликаем по кнопке зарегистироваться", () -> {
+        btnRegistration.shouldBe(visible).click();
+        });
         return this;
     }
 
     public RegFormPage checkProfileBtn() {
+        step("Проверяем что регистрация прошла успешно", () -> {
         checkProfileBtn.shouldBe(visible);
+        });
         return this;
     }
-
-
 }
