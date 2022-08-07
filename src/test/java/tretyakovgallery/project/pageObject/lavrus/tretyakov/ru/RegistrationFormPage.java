@@ -27,15 +27,6 @@ public class RegistrationFormPage {
 
 
     //actions
-    public RegistrationFormPage openPage() {
-        step("Открываем главную страницу, проверяем title Лаврус — просветительский проект Третьяковской галереи о русском искусстве", () -> {
-            open("https://lavrus.tretyakov.ru");
-            $("title").shouldHave(attribute("text", "Лаврус — просветительский проект Третьяковской галереи о русском искусстве"));
-            $(".cookies").$(byText("Понятно")).click();
-        });
-        return this;
-    }
-
     public RegistrationFormPage profileBtnClick() {
         step("Кликаем по иконке мой профиль, проверяем наличие  заголовка Войти на Лаврус", () -> {
             profileBtn.click();

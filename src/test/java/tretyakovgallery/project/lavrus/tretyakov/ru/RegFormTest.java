@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tretyakovgallery.project.TestBase;
 import tretyakovgallery.project.data.Generator;
+import tretyakovgallery.project.pageObject.lavrus.tretyakov.ru.OpenPageLavrus;
 import tretyakovgallery.project.pageObject.lavrus.tretyakov.ru.RegistrationFormPage;
 
 
@@ -19,6 +20,7 @@ import static java.lang.String.format;
 @Tag("lavrusTretyakov")
 public class RegFormTest extends TestBase {
 
+    OpenPageLavrus openPageLavrus = new OpenPageLavrus();
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     Generator gen = new Generator();
 
@@ -37,8 +39,8 @@ public class RegFormTest extends TestBase {
     @Test
     @DisplayName("Successful fill lavrusTretyakov registration test")
     void execute() {
-        registrationFormPage.openPage()
-                .profileBtnClick()
+        openPageLavrus.openPage();
+        registrationFormPage.profileBtnClick()
                 .hrefRegistrationClick()
                 .emailAddress(email)
                 .getPassword(password)
